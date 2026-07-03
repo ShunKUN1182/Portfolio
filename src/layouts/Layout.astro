@@ -2,12 +2,6 @@
 import {lang,title,description,x_name,url} from "../const.ts";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
-import 'ress/dist/ress.min.css';
-import "../styles/style.scss";
-const {pageTitle}:any = Astro.props;
-
-console.log(pageTitle);
-
 ---
 <!DOCTYPE html>
 <html lang={lang} prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# article: http://ogp.me/ns/article#">
@@ -17,7 +11,7 @@ console.log(pageTitle);
 <meta name="format-detection" content="telephone=no">
 <meta name="keywords" content="">
 <meta name="description" content={description}>
-<title>{pageTitle ? `${title} | ${pageTitle}` : title}</title>
+<title>{title}</title>
 
 <meta name="twitter:card" content="summary">
 <meta name="twitter:site" content=`@${x_name}`>
@@ -34,6 +28,6 @@ console.log(pageTitle);
 <body>
   <Header />
   <slot />
-  <Footer>
+  <Footer />
 </body>
 </html>
