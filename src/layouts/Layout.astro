@@ -1,0 +1,39 @@
+---
+import {lang,title,description,x_name,url} from "../const.ts";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import 'ress/dist/ress.min.css';
+import "../styles/style.scss";
+const {pageTitle}:any = Astro.props;
+
+console.log(pageTitle);
+
+---
+<!DOCTYPE html>
+<html lang={lang} prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# article: http://ogp.me/ns/article#">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0">
+<meta name="format-detection" content="telephone=no">
+<meta name="keywords" content="">
+<meta name="description" content={description}>
+<title>{pageTitle ? `${title} | ${pageTitle}` : title}</title>
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content=`@${x_name}`>
+<meta property="og:site_name" content={title}>
+<meta property="og:title" content={title}>
+<meta property="og:description" content={description}>
+<meta property="og:url" content={url}>
+<meta property="og:image" content=`${url}common/img/bg_img.jpg`>
+<meta property="og:type" content="website">
+<link rel="shortcut icon" href=`${url}favicon.ico` type="image/vnd.microsoft.icon">
+<link rel="apple-touch-icon" href=`${url}logo.png`>
+
+</head>
+<body>
+  <Header />
+  <slot />
+  <Footer>
+</body>
+</html>
